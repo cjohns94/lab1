@@ -18,14 +18,21 @@
 class Arena : public FighterInterface{
     private:
     std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
+    string fighter_name;
+    char fighter_type;
+    int max_hit_pts;
+    int strength;
+    int speed;
+    int magic;
     
     public:
     /*
     * In public, a constructor is needed. This is called automatically
     * whenever a new Arena object is created to initialize everything. 
     */
-    Arena(){}; //constructor??
-    ~Arena(){}; //What do these do = Destructor
+    Arena(); //Default constructor??
+    Arena(string fighter_entry);    //Constructor
+    ~Arena(); //What do these do = Destructor
     
     /* 
     * Since all member functions in ArenaInterface are virtual,
