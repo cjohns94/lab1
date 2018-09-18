@@ -17,39 +17,37 @@
 //Arena class is a collection of fighters with unique names.
 class Arena : public FighterInterface{
     private:
-    std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
-    string fighter_name;
-    char fighter_type;
-    int max_hit_pts;
-    int strength;
-    int speed;
-    int magic;
+        std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
+        string fighter_name;
+        char fighter_type;
+        int max_hit_pts;
+        int strength;
+        int speed;
+        int magic;
     
     public:
-    /*
-    * In public, a constructor is needed. This is called automatically
-    * whenever a new Arena object is created to initialize everything. 
-    */
-    Arena(); //Default constructor??
-    Arena(string fighter_entry);    //Constructor
-    ~Arena(); //What do these do = Destructor
-    
-    /* 
-    * Since all member functions in ArenaInterface are virtual,
-    * this allows the derived class to redefince the function.
-    * See http://www.cplusplus.com/doc/tutorial/polymorphism/
-    */
-    
-    bool addFighter(std::string info);
-    
-    bool removeFighter(std::string name);
-    
-    bool removeFighter(std::string name);
-    
-    FighterInterface* getFighter(std::string name); //How does the pointer work?
-    
-    int getSize() const;
-    
+        /*
+        * In public, a constructor is needed. This is called automatically
+        * whenever a new Arena object is created to initialize everything. 
+        */
+        Arena(); //Default constructor??
+        Arena(string fighter_entry);    //Constructor
+        ~Arena(); //What do these do = Destructor
+        
+        /* 
+        * Since all member functions in ArenaInterface are virtual,
+        * this allows the derived class to redefince the function.
+        * See http://www.cplusplus.com/doc/tutorial/polymorphism/
+        */
+        
+        bool addFighter(std::string info);
+        
+        bool removeFighter(std::string name);
+        
+        FighterInterface* getFighter(std::string name); //How does the pointer work?
+        
+        int getSize() const;
+        
     
 };
 #endif /*ARENA_H_*/
