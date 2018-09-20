@@ -7,15 +7,8 @@ Arena::Arena(){
     cout << "Empty Constructor" << endl;
 }
 
-Arena::Arena(string fighter_entry){
-    stringstream fighter(fighter_entry);
-    
-    fighter >> fighter_name;
-    fighter >> fighter_type;
-    fighter >> max_hit_pts;
-    fighter >> strength;
-    fighter >> speed;
-    fighter >> magic;
+Arena::~Arena(){
+    cout << "In destructor" << endl;
 }
 
 bool Arena::addFighter(std::string info){
@@ -28,7 +21,7 @@ bool Arena::addFighter(std::string info){
 	*
 	*	Return true if a new fighter was added; false otherwise.
 	*/
-    
+    return true;
 }
     
 bool Arena::removeFighter(std::string name){
@@ -40,7 +33,7 @@ bool Arena::removeFighter(std::string name){
 	*
 	*	Return true if a fighter is removed; false otherwise.
 	*/
-    
+    return true;
 }
     
 FighterInterface* Arena::getFighter(std::string name){ //How does the pointer work?
@@ -51,7 +44,9 @@ FighterInterface* Arena::getFighter(std::string name){ //How does the pointer wo
 	*	name.  Returns NULL if no fighter is found with the given name.
 	*
 	*	Return a memory address if a fighter is found; NULL otherwise.
+	*   
 	*/
+	return NULL;
 }
     
 int Arena::getSize() const{
@@ -62,5 +57,7 @@ int Arena::getSize() const{
 	*
 	*	Return a non-negative integer.
 	*/
+	
+	return 0;
     
 }

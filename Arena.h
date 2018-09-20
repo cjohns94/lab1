@@ -15,23 +15,16 @@
 
 
 //Arena class is a collection of fighters with unique names.
-class Arena : public FighterInterface{
+class Arena : public ArenaInterface{  //create a class that inherits from FighterInterface
     private:
-        std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
-        string fighter_name;
-        char fighter_type;
-        int max_hit_pts;
-        int strength;
-        int speed;
-        int magic;
-    
+        //std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
+
     public:
         /*
         * In public, a constructor is needed. This is called automatically
         * whenever a new Arena object is created to initialize everything. 
         */
         Arena(); //Default constructor??
-        Arena(string fighter_entry);    //Constructor
         ~Arena(); //What do these do = Destructor
         
         /* 
