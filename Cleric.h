@@ -5,7 +5,9 @@
 
 class Cleric : public Fighter{
     public:
-        Cleric();
+        Cleric():Fighter(fighter_info){
+            max_mana = 5*magic;
+        };
         ~Cleric();
         int getDamage();
         void takeDamage(int damage);
@@ -14,6 +16,8 @@ class Cleric : public Fighter{
         bool useAbility();
         
     private:
+        int current_mana;
+        int max_mana;
 };
 
 

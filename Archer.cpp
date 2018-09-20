@@ -2,9 +2,6 @@
 
 using namespace std;
 
-Archer::Archer(){
-    cout << "In constructor" << endl;
-}
 
 Archer::~Archer(){
     cout << "In destructor" << endl;

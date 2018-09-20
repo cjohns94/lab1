@@ -1,10 +1,8 @@
+
 #include "Robot.h"
 
 using namespace std;
 
-Robot::Robot(){
-  cout << "In constructor" << endl; 
-}
 
 Robot::~Robot(){
     cout << "In destructor" << endl;

@@ -1,13 +1,25 @@
 #include "Fighter.h"
+#include <sstream>
 
 using namespace std;
 
-Fighter::Fighter(){
-    cout << "In constructor" << endl;
+Fighter::Fighter(string fighter_info){
+    stringstream fighter(fighter_info);
+    
+    fighter >> name;
+    fighter >> type;
+    fighter >> max_hit_pts;
+    fighter >> strength;
+    fighter >> speed;
+    fighter >> magic;
+    
+    cout << "In Fighter.cpp constructor" << endl;
+    cout << "Fighter entered:" << endl;
+    cout << name << endl << type << endl << max_hit_pts << endl << strength << endl << speed << endl << magic << endl;
 }
 
 Fighter::~Fighter(){
-    cout << "In destructor" << endl;
+    cout << "In Fighter.cpp destructor" << endl;
 }
 
 string Fighter::getName(){

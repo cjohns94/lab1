@@ -2,9 +2,6 @@
 
 using namespace std;
 
-Cleric::Cleric(){
-    cout << "In constructor" << endl;
-}
 
 Cleric::~Cleric(){
     cout << "In destructor" << endl;
