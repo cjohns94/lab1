@@ -2,7 +2,7 @@
 #define ARENA_H_
 
 #include "ArenaInterface.h"
-#include "FighterInterface.h"
+#include "Fighter.h"
 #include <vector>
 #include <string>
 
@@ -17,7 +17,7 @@
 //Arena class is a collection of fighters with unique names.
 class Arena : public ArenaInterface{  //create a class that inherits from FighterInterface
     private:
-        //std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
+        std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
 
     public:
         /*

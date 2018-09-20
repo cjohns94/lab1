@@ -4,11 +4,11 @@
 using namespace std;
 
 Arena::Arena(){
-    cout << "Empty Constructor" << endl;
+    cout << "In arena constructor" << endl;
 }
 
 Arena::~Arena(){
-    cout << "In destructor" << endl;
+    cout << "In arena destructor" << endl;
 }
 
 bool Arena::addFighter(std::string info){
