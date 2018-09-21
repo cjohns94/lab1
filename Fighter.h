@@ -4,17 +4,23 @@
 #include "FighterInterface.h"
 #include <string>
 
+using namespace std;
 
 class Fighter : public FighterInterface{
     public:
-        Fighter(std::string fighter_info);
+        Fighter(string fighter_name, int fighter_max_hit_pts, int fighter_strength, int fighter_speed, int fighter_magic);
         ~Fighter();
-        std::string getName();
-        int getMaximumHP();
-        int getCurrentHP();
-        int getStrength();
-        int getSpeed();
-        int getMagic();
+        std::string getName() const;
+        int getMaximumHP() const;
+        int getCurrentHP() const;
+        int getStrength() const;
+        int getSpeed() const;
+        int getMagic() const;
+        virtual int getDamage() = 0;
+        virtual void takeDamage(int damage) = 0;
+        virtual void reset() = 0;
+        virtual void regenerate() = 0;
+        virtual bool useAbility() = 0;
         
     protected:
         std::string name;
@@ -23,7 +29,8 @@ class Fighter : public FighterInterface{
         int strength;
         int speed;
         int magic;
-        std::string fighter_info;
+        std::string info;
+
 };
 
 #endif

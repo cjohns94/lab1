@@ -2,10 +2,15 @@
 #define ARENA_H_
 
 #include "ArenaInterface.h"
+#include "FighterInterface.h"
 #include "Fighter.h"
+#include "Robot.h"
+#include "Cleric.h"
+#include "Archer.h"
 #include <vector>
 #include <string>
 
+using namespace std;
 /*
 * Syntax for defining a derived class:
 *
@@ -16,16 +21,18 @@
 
 //Arena class is a collection of fighters with unique names.
 class Arena : public ArenaInterface{  //create a class that inherits from FighterInterface
-    private:
+    protected:
         std::vector<Fighter*> fighter_vector;      //vector of fighter pointers
+
 
     public:
         /*
         * In public, a constructor is needed. This is called automatically
         * whenever a new Arena object is created to initialize everything. 
         */
-        Arena(); //Default constructor??
-        ~Arena(); //What do these do = Destructor
+        Arena() {}//Default constructor??
+        ~Arena() {} //What do these do = Destructor
+
         
         /* 
         * Since all member functions in ArenaInterface are virtual,

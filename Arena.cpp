@@ -1,8 +1,10 @@
 #include "Arena.h"
 #include <sstream>
 
+
 using namespace std;
 
+/*
 Arena::Arena(){
     cout << "In arena constructor" << endl;
 }
@@ -10,8 +12,26 @@ Arena::Arena(){
 Arena::~Arena(){
     cout << "In arena destructor" << endl;
 }
+*/
 
 bool Arena::addFighter(std::string info){
+	
+    std::string name;
+    char type;
+    int max_hit_pts;
+    int strength;
+    int speed;
+    int magic;
+
+	stringstream fighter(info);
+    
+    fighter >> name;
+    fighter >> type;
+    fighter >> max_hit_pts;
+    fighter >> strength;
+    fighter >> speed;
+    fighter >> magic;
+    
 	/*
 	*	addFighter(string)
 	*
@@ -21,6 +41,19 @@ bool Arena::addFighter(std::string info){
 	*
 	*	Return true if a new fighter was added; false otherwise.
 	*/
+	//Robot* new_fighter = new Robot();		//Create a new robot object pointer
+	//fighter_vector.push_back(new_fighter);	//Adds robot object pointer
+	if(type == 'R'){
+		//Create a new robot object pointer
+		fighter_vector.push_back(new Robot(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer
+	}else if (type == 'C'){
+		//Robot* new_fighter = new Robot();		//Create a new robot object pointer
+		//fighter_vector.push_back(new_fighter);	//Adds robot object pointer		
+	}else if (type == 'A'){
+		//Robot* new_fighter = new Robot();		//Create a new robot object pointer
+		//fighter_vector.push_back(new_fighter);	//Adds robot object pointer		
+	}
+	
     return true;
 }
     

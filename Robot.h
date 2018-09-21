@@ -5,7 +5,8 @@
 
 class Robot : public Fighter{
     public:
-        Robot():Fighter(fighter_info){
+        Robot(string name, int max_hit_pts, int strength, int speed, int magic):Fighter(name,max_hit_pts,strength,speed,magic){
+            
             max_energy = 2*magic;
         };
         /*  The member initializer list above can only be used in constructor

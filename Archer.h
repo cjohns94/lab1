@@ -5,7 +5,7 @@
 
 class Archer : public Fighter{
     public:
-        Archer():Fighter(fighter_info){
+        Archer(string name, int max_hit_pts, int strength, int speed, int magic):Fighter(name,max_hit_pts,strength,speed,magic){
             current_speed = speed;
             current_hit_pts = max_hit_pts;
         };

@@ -3,45 +3,42 @@
 
 using namespace std;
 
-Fighter::Fighter(string fighter_info){
-    stringstream fighter(fighter_info);
-    
-    fighter >> name;
-    fighter >> type;
-    fighter >> max_hit_pts;
-    fighter >> strength;
-    fighter >> speed;
-    fighter >> magic;
-    
-    cout << "In Fighter.cpp constructor" << endl;
-    cout << "Fighter entered:" << endl;
-    cout << name << endl << type << endl << max_hit_pts << endl << strength << endl << speed << endl << magic << endl;
+Fighter::Fighter(string name, int max_hit_pts, int strength, int speed, int magic){
+
+    //this -> overallnum = localnum; dont have to rename everything.
+    this->name = name;
+    this->max_hit_pts = max_hit_pts;
+    this->strength = strength;
+    this->speed = speed;
+    this->magic = magic;
+
+    //cout << "In Fighter.cpp constructor" << endl;
 }
 
 Fighter::~Fighter(){
     cout << "In Fighter.cpp destructor" << endl;
 }
 
-string Fighter::getName(){
+string Fighter::getName() const{
     return "pizza";
 }
 
-int Fighter::getMaximumHP(){
+int Fighter::getMaximumHP() const{
     return 0;
 }
 
-int Fighter::getCurrentHP(){
+int Fighter::getCurrentHP()const{
     return 0;
 }
 
-int Fighter::getStrength(){
+int Fighter::getStrength()const{
     return 0;
 }
 
-int Fighter::getSpeed(){
+int Fighter::getSpeed()const{
     return 0;
 }
 
-int Fighter::getMagic(){
+int Fighter::getMagic()const{
     return 0;
 }
