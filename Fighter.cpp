@@ -11,6 +11,8 @@ Fighter::Fighter(string name, int max_hit_pts, int strength, int speed, int magi
     this->strength = strength;
     this->speed = speed;
     this->magic = magic;
+    
+    current_hit_pts = max_hit_pts; 
 
     //cout << "In Fighter.cpp constructor" << endl;
 }
@@ -20,25 +22,31 @@ Fighter::~Fighter(){
 }
 
 string Fighter::getName() const{
-    return "pizza";
+    //cout << "In Fighter getName" << endl;
+    return name;
 }
 
 int Fighter::getMaximumHP() const{
-    return 0;
+    //cout << "In Fighter getMaxHP" << endl;
+    return max_hit_pts;
 }
 
-int Fighter::getCurrentHP()const{
-    return 0;
+int Fighter::getCurrentHP() const{
+    //cout << "In Fighter getCurrentHP" << endl;
+    return current_hit_pts;
 }
 
 int Fighter::getStrength()const{
-    return 0;
+    //cout << "In Fighter getStrength" << endl;
+    return strength;
 }
 
 int Fighter::getSpeed()const{
-    return 0;
+    //cout << "In Fighter getSpeed" << endl;
+    return speed;
 }
 
 int Fighter::getMagic()const{
-    return 0;
+    //cout << "In Fighter getMagic" << endl;
+    return magic;
 }

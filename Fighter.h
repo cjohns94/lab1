@@ -12,7 +12,7 @@ class Fighter : public FighterInterface{
         ~Fighter();
         std::string getName() const;
         int getMaximumHP() const;
-        int getCurrentHP() const;
+        int getCurrentHP() const;       //Does this function go here or in the subclasses?
         int getStrength() const;
         int getSpeed() const;
         int getMagic() const;
@@ -30,6 +30,7 @@ class Fighter : public FighterInterface{
         int speed;
         int magic;
         std::string info;
+        int current_hit_pts;
 
 };
 

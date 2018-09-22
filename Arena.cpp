@@ -4,34 +4,8 @@
 
 using namespace std;
 
-/*
-Arena::Arena(){
-    cout << "In arena constructor" << endl;
-}
-
-Arena::~Arena(){
-    cout << "In arena destructor" << endl;
-}
-*/
 
 bool Arena::addFighter(std::string info){
-	
-    std::string name;
-    char type;
-    int max_hit_pts;
-    int strength;
-    int speed;
-    int magic;
-
-	stringstream fighter(info);
-    
-    fighter >> name;
-    fighter >> type;
-    fighter >> max_hit_pts;
-    fighter >> strength;
-    fighter >> speed;
-    fighter >> magic;
-    
 	/*
 	*	addFighter(string)
 	*
@@ -40,22 +14,46 @@ bool Arena::addFighter(std::string info){
 	*	outlined in the lab specs.
 	*
 	*	Return true if a new fighter was added; false otherwise.
-	*/
-	//Robot* new_fighter = new Robot();		//Create a new robot object pointer
-	//fighter_vector.push_back(new_fighter);	//Adds robot object pointer
-	if(type == 'R'){
-		//Create a new robot object pointer
-		fighter_vector.push_back(new Robot(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer
-	}else if (type == 'C'){
-		//Robot* new_fighter = new Robot();		//Create a new robot object pointer
-		//fighter_vector.push_back(new_fighter);	//Adds robot object pointer		
-	}else if (type == 'A'){
-		//Robot* new_fighter = new Robot();		//Create a new robot object pointer
-		//fighter_vector.push_back(new_fighter);	//Adds robot object pointer		
-	}
+	*/	
 	
-    return true;
+	//Define input vars
+    std::string name;
+    char type;
+    int max_hit_pts;
+    int strength;
+    int speed;
+    int magic;
+    
+    //Put input vars into stringstream to parse
+	stringstream fighter(info);
+	    
+    fighter >> name;
+    fighter >> type;
+    fighter >> max_hit_pts;
+	fighter >> strength;
+    fighter >> speed;
+    fighter >> magic;
+    
+
+	//Check to make sure input has right amount and type
+	//if(info >> name >> type >> max_hit_pts >> strength >> speed >> magic){
+
+		if(type == 'R'){
+			//Create a new robot object pointer
+			cout << "Adding robot" << endl;
+			fighter_vector.push_back(new Robot(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer
+		}else if (type == 'C'){
+			cout << "Adding Cleric" << endl;
+			fighter_vector.push_back(new Cleric(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer	
+		}else if (type == 'A'){
+			cout << "Adding Archer" << endl;
+			fighter_vector.push_back(new Archer(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer	
+		}
+		return true;
+//	}
+  //  return false;		//invalid input
 }
+
     
 bool Arena::removeFighter(std::string name){
 	/*
@@ -66,6 +64,16 @@ bool Arena::removeFighter(std::string name){
 	*
 	*	Return true if a fighter is removed; false otherwise.
 	*/
+	
+	//Run through the fighter vector 
+	for (int i = 0; i < fighter_vector.size(); i++){
+		//And find a name that matches the given name
+		if(fighter_vector.at(i)->getName() == name){
+			//And erase it
+			fighter_vector.erase(fighter_vector.begin() + i); //-------------------------------------------Why do I need to use vector.begin()?
+			return true;
+		}
+	}
     return true;
 }
     
@@ -79,6 +87,12 @@ FighterInterface* Arena::getFighter(std::string name){ //How does the pointer wo
 	*	Return a memory address if a fighter is found; NULL otherwise.
 	*   
 	*/
+	for(Fighter* locator : fighter_vector){
+		if (locator->getName() == name){
+			return locator;
+		}
+		
+	}
 	return NULL;
 }
     
@@ -91,6 +105,6 @@ int Arena::getSize() const{
 	*	Return a non-negative integer.
 	*/
 	
-	return 0;
+	return fighter_vector.size();
     
 }
