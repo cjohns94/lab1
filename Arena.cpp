@@ -74,7 +74,7 @@ bool Arena::removeFighter(std::string name){
 			return true;
 		}
 	}
-    return true;
+    return false;
 }
     
 FighterInterface* Arena::getFighter(std::string name){ //How does the pointer work?
