@@ -1,5 +1,6 @@
 
 #include "Robot.h"
+#include <math.h>
 
 using namespace std;
 
@@ -11,6 +12,7 @@ Robot::~Robot(){
 int Robot::getDamage(){
     //Robot: This value is equal to the Robot's strength plus any additional damage added for having just used its special ability.
     int damage_stat = strength + bonus_damage;
+    bonus_damage = 0;
     return damage_stat;
 }
 
@@ -79,7 +81,7 @@ void Robot::regenerate(){
     
 }
 
-bool Robot::useAbility(){ //NEED TO IMPLEMENT. WHAT IS [ROBOT_ABILITY_COST]???
+bool Robot::useAbility(){
     
 	/*
 	*	useAbility()
@@ -104,8 +106,10 @@ bool Robot::useAbility(){ //NEED TO IMPLEMENT. WHAT IS [ROBOT_ABILITY_COST]???
 	    Return true if the ability was used; false otherwise
 	*/
 	
-	
-	
-	
-    return true;
+	if(current_energy > ROBOT_ABILITY_COST){
+		bonus_damage = strength*pow(current_energy/max_energy,4);
+		current_energy = current_energy - ROBOT_ABILITY_COST;
+	    return true;	
+	}
+	return false;
 }

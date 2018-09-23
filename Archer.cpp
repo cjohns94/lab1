@@ -12,7 +12,7 @@ int Archer::getDamage(){
 /*		Archer:
 		This value is equal to the Archer's speed.
 */
-    return speed;
+    return current_speed;
 }
 
 void Archer::takeDamage(int damage){
@@ -26,7 +26,7 @@ void Archer::takeDamage(int damage){
 	*	this method to give the fighter negative current hit points.
 	*/
 	
-	int damage_taken = damage - speed/4;
+	int damage_taken = damage - current_speed/4;
 	
 	//Check to make sure damage is at least one.
 	if (damage_taken < 1){
@@ -81,7 +81,7 @@ void Archer::regenerate(){
     
 }
 
-bool Archer::useAbility(){ //NEED TO IMPLEMENT
+bool Archer::useAbility(){
 
     /*
     *	useAbility()

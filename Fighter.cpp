@@ -12,7 +12,8 @@ Fighter::Fighter(string name, int max_hit_pts, int strength, int speed, int magi
     this->speed = speed;
     this->magic = magic;
     
-    current_hit_pts = max_hit_pts; 
+    current_hit_pts = max_hit_pts;
+    current_speed = speed;
 
     //cout << "In Fighter.cpp constructor" << endl;
 }
@@ -43,7 +44,7 @@ int Fighter::getStrength()const{
 
 int Fighter::getSpeed()const{
     //cout << "In Fighter getSpeed" << endl;
-    return speed;
+    return current_speed;
 }
 
 int Fighter::getMagic()const{

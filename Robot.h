@@ -8,6 +8,8 @@ class Robot : public Fighter{
         Robot(string name, int max_hit_pts, int strength, int speed, int magic):Fighter(name,max_hit_pts,strength,speed,magic){
             
             max_energy = 2*magic;
+            bonus_damage = 0;
+            current_energy = max_energy;
         };
         /*  The member initializer list above can only be used in constructor
         *   definition. A robot is contructed by calling the fighter constructor.
@@ -20,8 +22,8 @@ class Robot : public Fighter{
         bool useAbility();
         
     private:
-        int max_energy;
-        int current_energy;
+        double max_energy;
+        double current_energy;
         int bonus_damage;
 };
 

@@ -12,10 +12,7 @@ int Cleric::getDamage(){
 	*	Cleric:
 	*	This value is equal to the Cleric's magic.
 	*/
-	
-	int damage_stat = magic;
-	
-    return damage_stat;
+    return magic;
 }
 
 void Cleric::takeDamage(int damage){
@@ -125,6 +122,20 @@ bool Cleric::useAbility(){      //NEED TO IMPLEMENT
 	*
 	*	Return true if the ability was used; false otherwise.
 	*/
-	
-    return true;
+	if(current_mana >= CLERIC_ABILITY_COST){
+		int hp_increase = magic/3;
+		
+		if(hp_increase < 1){
+			hp_increase = 1;
+		}
+		
+		current_hit_pts = current_hit_pts + hp_increase;
+		
+		if(current_hit_pts > max_hit_pts){
+			current_hit_pts = max_hit_pts;
+		}
+		return true;
+	}
+	return false;
+    
 }

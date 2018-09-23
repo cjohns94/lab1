@@ -26,11 +26,12 @@ class Fighter : public FighterInterface{
         std::string name;
         char type;
         int max_hit_pts;
-        int strength;
+        double strength;
         int speed;
         int magic;
         std::string info;
         int current_hit_pts;
+        int current_speed;
 
 };
 
