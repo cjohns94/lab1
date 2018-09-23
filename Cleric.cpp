@@ -102,7 +102,7 @@ void Cleric::regenerate(){
     
 }
 
-bool Cleric::useAbility(){      //NEED TO IMPLEMENT
+bool Cleric::useAbility(){
 
 	/*
 	*	useAbility()
@@ -134,6 +134,8 @@ bool Cleric::useAbility(){      //NEED TO IMPLEMENT
 		if(current_hit_pts > max_hit_pts){
 			current_hit_pts = max_hit_pts;
 		}
+		
+		current_mana = current_mana - CLERIC_ABILITY_COST;
 		return true;
 	}
 	return false;
