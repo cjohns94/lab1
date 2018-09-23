@@ -24,34 +24,36 @@ bool Arena::addFighter(std::string info){
     int speed;
     int magic;
     
-    //Put input vars into stringstream to parse
+  //Put input vars into stringstream to parse
 	stringstream fighter(info);
-	    
-    fighter >> name;
-    fighter >> type;
-    fighter >> max_hit_pts;
-	fighter >> strength;
-    fighter >> speed;
-    fighter >> magic;
-    
 
 	//Check to make sure input has right amount and type
-	//if(info >> name >> type >> max_hit_pts >> strength >> speed >> magic){
-
-		if(type == 'R'){
-			//Create a new robot object pointer
-			cout << "Adding robot" << endl;
-			fighter_vector.push_back(new Robot(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer
-		}else if (type == 'C'){
-			cout << "Adding Cleric" << endl;
-			fighter_vector.push_back(new Cleric(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer	
-		}else if (type == 'A'){
-			cout << "Adding Archer" << endl;
-			fighter_vector.push_back(new Archer(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer	
+	while(fighter >> name >> type >> max_hit_pts >> strength >> speed >> magic){
+	
+		//Check for duplicate names
+		for (int i = 0; i < fighter_vector.size(); i++){
+			//Reject input if input name is a duplicate
+			if(fighter_vector.at(i)->getName() == name){
+				return false;
+			}
 		}
-		return true;
-//	}
-  //  return false;		//invalid input
+		
+		if(fighter.eof()){
+			if(type == 'R'){
+				//Create a new robot object pointer
+				cout << "Adding robot" << endl;
+				fighter_vector.push_back(new Robot(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer
+			}else if (type == 'C'){
+				cout << "Adding Cleric" << endl;
+				fighter_vector.push_back(new Cleric(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer	
+			}else if (type == 'A'){
+				cout << "Adding Archer" << endl;
+				fighter_vector.push_back(new Archer(name,max_hit_pts,strength,speed,magic));	//Adds robot object pointer	
+			}
+			return true;
+		}
+	}
+  return false;		//invalid input
 }
 
     
