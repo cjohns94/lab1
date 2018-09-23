@@ -94,5 +94,6 @@ bool Archer::useAbility(){ //NEED TO IMPLEMENT
 	*	This bonus lasts until the reset() method is used.
 	*	This ability always works; there is no maximum bonus speed.
 	*/
+	current_speed++;
     return true;
 }
